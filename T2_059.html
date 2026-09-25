@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T2 - Pencetak Angka Aturan Khusus</title>
+</head>
+<body>
+
+    <h1>T2_059 - Pencetak Angka dengan Aturan Khusus</h1>
+    <p>Mencetak angka 1 hingga 100 dengan aturan:</p>
+    <ul>
+        <li>Kelipatan 3 : MI</></li>
+        <li>Kelipatan 5 : 2A</></li>
+        <li>Kelipatan 15 (3 dan 5) : MI2A</></li>
+    </ul>
+
+    <button onclick="cetakAngka()">Tampilkan</button>
+
+    <div id="output"></div>
+
+    <script>
+        function cetakAngka() {
+            let hasil = [];
+
+            for (let i = 1; i <= 100; i++) {
+                if (i % 15 === 0) {
+                    hasil.push("MI2A");
+                } else if (i % 3 === 0) {
+                    hasil.push("MI");
+                } else if (i % 5 === 0) {
+                    hasil.push("2A");
+                } else {
+                    hasil.push(i);
+                }
+            }
+
+            document.getElementById('output').innerHTML = hasil.join(', ');
+        }
+    </script>
+
+</body>
+</html>

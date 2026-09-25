@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T3 - Statistic Array</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        input[type="text"] {
+            padding: 6px 10px;
+            font-size: 15px;
+            width: 300px;
+            margin-left: 8px;
+        }
+        button {
+            padding: 7px 16px;
+            font-size: 15px;
+            cursor: pointer;
+            margin-left: 8px;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>T3_059 - Nilai Minimum, Maksimum, dan Rata-rata</h1>
+
+    <label for="inputArray">Masukkan angka (pisahkan dengan koma):</label>
+    <input type="text" id="inputArray" placeholder="Contoh: 10, 20, 30, 40, 50">
+    <button onclick="hitungStatistik()">Hitung</button>
+
+    <div id="result"></div>
+
+    <script>
+       function hitungStatistik() {
+        const input = document.getElementById('inputArray').value;
+
+        if (input.trim() === '') return alert("Masukkan angka terlebih dahulu.");
+
+        const array = input.split(',').map(Number);
+
+        if (array.some(isNaN)) return alert("Masukkan angka yang valid.");
+
+        document.getElementById('result').innerHTML = `
+            <p>Array Angka: [${array.join(', ')}]</p>
+            <p>Nilai Minimum: ${Math.min(...array)}</p>
+            <p>Nilai Maksimum: ${Math.max(...array)}</p>
+            <p>Nilai Rata-rata: ${(array.reduce((a, b) => a + b, 0) / array.length).toFixed(2)}</p>
+        `;
+    }
+    </script>
+
+</body>
+</html>
